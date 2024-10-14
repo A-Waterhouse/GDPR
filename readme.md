@@ -307,7 +307,7 @@ are `["Name", "Email Address", "Sex", "DOB"]`
    -  these can be changed in **line 6** of `create_json_payload.py` in `GDPR/src/utils`, the fields are case sensitive and must match existing fields in the `dummy_data_large.csv` file.
 
 
-If the PII fields are changed the buckets must first be emptied or confirmed empty by checking on the AWS website, then run `make data` (to make another csv file), `make upload` (to put it in the correct bucket) and `make invoke` (to make the json file with updated PII fields and trigger the lambda) in that order
+If the PII fields are changed the `input` and `invocation` buckets must first be emptied or confirmed empty by checking on the AWS website, then run `make data` (to make another csv file), `make upload` (to put it in the correct bucket) and `make invoke` (to make the json file with updated PII fields and trigger the lambda) in that order
 ## Manual Invocation
 
 Alternatively you can use your own `.csv` file using the same format as the `Example Input CSV file` (as seen at start of this readme) and upload it manually to the `input` bucket on the aws website or via the AWS CLI.
@@ -332,7 +332,7 @@ If the `***` is changed you must again push to github to update the lambda funct
 There are also detailed log messages which can be viewed on the AWS website, at the top of the console use the search tool for the word `cloudwatch`, select it and then click log groups on the left, once here you will see a log group
 named `/aws/lambda/my_lambda_function` click on that and then in there you will see a date stamped log file which can be viewed within the browser if you so wish.
 
-This might be useful for trouble shooting as a common error could be that the PII field doesn't exist, if so double check the .csv, .json and the PII fields (remembering that they are case sensitive).
+This might be useful for trouble shooting as a common error could be that the PII field doesn't exist or has been spelt incorrectly, if so double check the .csv, .json and the PII fields (remembering that they are case sensitive).
 
 ----------------------------------------------------------------
 
