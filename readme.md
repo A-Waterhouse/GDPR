@@ -307,7 +307,7 @@ are `["Name", "Email Address", "Sex", "DOB"]`
    -  these can be changed in **line 6** of `create_json_payload.py` in `GDPR/src/utils`, the fields are case sensitive and must match existing fields in the `dummy_data_large.csv` file.
 
 
-If the PII fields are changed run `make data` (to make another csv file), `make upload` (to put it in the correct bucket) and `make invoke` (to make the json file with updated PII fields and trigger the lambda) in that order
+If the PII fields are changed the buckets must first be emptied or confirmed empty by checking on the AWS website, then run `make data` (to make another csv file), `make upload` (to put it in the correct bucket) and `make invoke` (to make the json file with updated PII fields and trigger the lambda) in that order
 ## Manual Invocation
 
 Alternatively you can use your own `.csv` file using the same format as the `Example Input CSV file` (as seen at start of this readme) and upload it manually to the `input` bucket on the aws website or via the AWS CLI.
